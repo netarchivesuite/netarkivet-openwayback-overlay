@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>dk.netarkivet.wayback</groupId>
+    <artifactId>netarkivet-openwayback-overlay</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <nas.version>4.1-SNAPSHOT</nas.version>
+    </properties>
+
+    <packaging>war</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.netpreserve.openwayback</groupId>
+            <artifactId>openwayback-core</artifactId>
+            <version>2.0.0.BETA.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netpreserve.openwayback</groupId>
+            <artifactId>openwayback-webapp</artifactId>
+            <version>2.0.0.BETA.2</version>
+            <type>war</type>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>dk.netarchivesuite</groupId>
+            <artifactId>netarchivesuite-common</artifactId>
+            <version>${nas.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>dk.netarchivesuite</groupId>
+            <artifactId>netarchivesuite-archive</artifactId>
+            <version>${nas.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>dk.netarchivesuite</groupId>
+            <artifactId>netarchivesuite-wayback</artifactId>
+            <version>${nas.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>berkeleydb</groupId>
+                    <artifactId>je</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.archive.wayback</groupId>
+                    <artifactId>wayback-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+
+
+    <build>
+        <finalName>netarkivet-openwayback</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <overlays>
+                        <overlay>
+                            <groupId>org.netpreserve.openwayback</groupId>
+                            <artifactId>openwayback-webapp</artifactId>
+                        </overlay>
+                    </overlays>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
