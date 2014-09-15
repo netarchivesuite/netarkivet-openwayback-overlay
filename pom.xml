@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <nas.version>4.1-SNAPSHOT</nas.version>
+        <nas.version>5.0-SNAPSHOT</nas.version>
     </properties>
 
     <packaging>war</packaging>
@@ -28,18 +28,36 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>dk.netarchivesuite</groupId>
-            <artifactId>netarchivesuite-common</artifactId>
+            <groupId>dk.netarkivet.netarchivesuite</groupId>
+            <artifactId>common</artifactId>
+            <version>${nas.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-server</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-webapp</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-runner</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>berkeleydb</groupId>
+                    <artifactId>je</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>dk.netarkivet.netarchivesuite</groupId>
+            <artifactId>archive</artifactId>
             <version>${nas.version}</version>
         </dependency>
         <dependency>
-            <groupId>dk.netarchivesuite</groupId>
-            <artifactId>netarchivesuite-archive</artifactId>
-            <version>${nas.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>dk.netarchivesuite</groupId>
-            <artifactId>netarchivesuite-wayback</artifactId>
+            <groupId>dk.netarkivet.netarchivesuite</groupId>
+            <artifactId>wayback</artifactId>
             <version>${nas.version}</version>
             <exclusions>
                 <exclusion>
