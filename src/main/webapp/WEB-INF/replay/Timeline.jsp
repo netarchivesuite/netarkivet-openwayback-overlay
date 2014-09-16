@@ -15,6 +15,7 @@
 <%
 
 
+
 UIResults results = UIResults.extractReplay(request);
 String staticPrefix = results.getStaticPrefix();
 WaybackRequest wbRequest = results.getWbRequest();
@@ -25,7 +26,6 @@ String exactDateStr = results.getResult().getCaptureTimestamp();
 Date exactDate = results.getResult().getCaptureDate();
 String searchUrl = wbRequest.getRequestUrl();
 String resolution = wbRequest.getTimelineResolution();
-
 
 if(resolution == null) {
   resolution = WaybackRequest.REQUEST_RESOLUTION_AUTO;
