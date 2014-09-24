@@ -63,8 +63,9 @@ String yearFormatKey = "PartitionSize.dateHeader.yearGraphLabel";
 String encodedGraph = data.computeGraphString(yearFormatKey,imgWidth,imgHeight);
 String graphImgUrl = graphJspPrefix + "jsp/graph.jsp?graphdata=" + encodedGraph;
 // TODO: this is archivalUrl specific:
-String starLink = fmt.escapeHtml(queryPrefix + wbRequest.getReplayTimestamp() +
-		"*/" + searchUrl);
+//String starLink = fmt.escapeHtml(queryPrefix + wbRequest.getReplayTimestamp() +
+//		"*/" + searchUrl);
+String starLink = fmt.escapeHtml(queryPrefix + "query?type=urlquery&url=" + searchUrl);
 %>
 <!-- BEGIN WAYBACK TOOLBAR INSERT -->
 
