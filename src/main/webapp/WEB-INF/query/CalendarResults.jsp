@@ -53,9 +53,7 @@ int numPartitions = partitions.size();
             <%= fmt.format("PathQueryClassic.searchedFor",searchString) %>
       </td>
       <td align="right">
-            Set Anchor Window:
-            <jsp:include page="/WEB-INF/template/AnchorWindow.jsp" flush="true" />
-            <%= fmt.format("PathQueryClassic.resultsSummary",resultCount) %>
+            All capture times are UTC.
       </td>
    </tr>
 </table>
