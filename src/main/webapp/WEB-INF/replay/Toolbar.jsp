@@ -72,6 +72,7 @@ String starLink = fmt.escapeHtml(queryPrefix + wbRequest.getReplayTimestamp() +
 <script type="text/javascript" src="<%= staticPrefix %>js/graph-calc.js" ></script>
 <script type="text/javascript" src="<%= staticPrefix %>jflot/jquery.min.js" ></script>
 <script type="text/javascript">
+//<![CDATA[
 var firstDate = <%= firstYearDate.getTime() %>;
 var lastDate = <%= lastYearDate.getTime() %>;
 var wbPrefix = "<%= replayPrefix %>";
@@ -169,6 +170,7 @@ function trackMouseMove(event,element) {
        curMonth = month;
    }
 }
+//]]>
 </script>
 
 <style type="text/css">body{margin-top:0!important;padding-top:0!important;min-width:800px!important;}#wm-ipp a:hover{text-decoration:underline!important;}</style>
@@ -185,7 +187,12 @@ function trackMouseMove(event,element) {
 
        <table style="border-collapse:collapse;margin:0 auto;padding:0;width:570px;"><tbody><tr>
        <td style="padding:3px 0;" colspan="2">
-           <form target="_top" method="get" action="<%= queryPrefix %>query" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;"><input type="text" name="<%= WaybackRequest.REQUEST_URL %>" id="wmtbURL" value="<%= searchUrlSafe %>" maxlength="256" style="width:400px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;"/><input type="hidden" name="<%= WaybackRequest.REQUEST_TYPE %>" value="<%= WaybackRequest.REQUEST_REPLAY_QUERY %>"><input type="hidden" name="<%= WaybackRequest.REQUEST_DATE %>" value="<%= data.curResult.getCaptureTimestamp() %>"><input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;"/><span id="wm_tb_options" style="display:block;"></span></form>
+           <form target="_top" method="get" action="<%= queryPrefix %>query" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;">
+               <input type="text" name="<%= WaybackRequest.REQUEST_URL %>" id="wmtbURL" value="<%= searchUrlSafe %>" maxlength="256" style="width:400px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;"/>
+               <input type="hidden" name="<%= WaybackRequest.REQUEST_TYPE %>" value="<%= WaybackRequest.REQUEST_REPLAY_QUERY %>"><input type="hidden" name="<%= WaybackRequest.REQUEST_DATE %>" value="<%= data.curResult.getCaptureTimestamp() %>"/>
+               <input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;"/>
+               <span id="wm_tb_options" style="display:block;"/>
+           </form>
            <%=fileinfo%>
        </td>
        <td style="vertical-align:bottom;padding:5px 0 0 0!important;" rowspan="2">
