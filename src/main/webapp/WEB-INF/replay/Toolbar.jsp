@@ -23,7 +23,8 @@
 %><%@ page import="org.archive.wayback.util.partition.PartitionSize"
 %><%@ page import="org.archive.wayback.util.StringFormatter"
 %><%@ page import="org.archive.wayback.util.url.UrlOperations"
-%><%
+%>
+<%@ page import="org.archive.wayback.proxy.ProxyRequestParser" %><%
 UIResults results = UIResults.extractReplay(request);
 WaybackRequest wbRequest = results.getWbRequest();
 ResultURIConverter uriConverter = results.getURIConverter();
@@ -42,6 +43,7 @@ CaptureSearchResult res =  data.curResult;
 //This is the extra string with fileinfo that netarkivest likes to put in the timeline.
 String fileinfo = res.getFile() + "/" + res.getOffset();
 
+boolean isProxyMode = results.getWbRequest().getAccessPoint().getParser() instanceof ProxyRequestParser;
 
 String searchUrl =
 	UrlOperations.stripDefaultPortFromUrl(wbRequest.getRequestUrl());
@@ -156,7 +158,8 @@ function trackMouseMove(event,element) {
 	// looks too jarring when it changes..
 	//document.getElementById("displayDayEl").innerHTML = zeroPad(day,2);
 
-	var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+	//var url = wbPrefix + dateString + '/' +  wbCurrentUrl;
+    var url = wbPrefix + 'jsp/QueryUI/Redirect.jsp?url=' + wbCurrentUrl + "/&time=" + dateString;
 	document.getElementById('wm-graph-anchor').href = url;
 
    //document.getElementById("wmtbURL").value="evX("+eventX+") elX("+elementX+") xO("+xOff+") y("+year+") m("+month+") monthOff("+monthOff+") DS("+dateString+") Moy("+monthOfYear+") ms("+monthString+")";
