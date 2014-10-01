@@ -70,7 +70,8 @@ String graphImgUrl = graphJspPrefix + "jsp/graph.jsp?graphdata=" + encodedGraph;
 String starLink = fmt.escapeHtml(queryPrefix + "query?type=urlquery&url=" + searchUrl);
 %>
 <!-- BEGIN WAYBACK TOOLBAR INSERT -->
-
+<script type="text/javascript" src="<%= staticPrefix %>js/punycode.js"></script>
+<script type="text/javascript" src="<%= staticPrefix %>js/punify.js"></script>
 <script type="text/javascript" src="<%= staticPrefix %>js/disclaim-element.js" ></script>
 <script type="text/javascript" src="<%= staticPrefix %>js/graph-calc.js" ></script>
 <script type="text/javascript" src="<%= staticPrefix %>jflot/jquery.min.js" ></script>
@@ -194,7 +195,9 @@ function trackMouseMove(event,element) {
            <form target="_top" method="get" action="<%= queryPrefix %>query" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;">
                <input type="text" name="<%= WaybackRequest.REQUEST_URL %>" id="wmtbURL" value="<%= searchUrlSafe %>" maxlength="256" style="width:400px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;"/>
                <input type="hidden" name="<%= WaybackRequest.REQUEST_TYPE %>" value="<%= WaybackRequest.REQUEST_REPLAY_QUERY %>"><input type="hidden" name="<%= WaybackRequest.REQUEST_DATE %>" value="<%= data.curResult.getCaptureTimestamp() %>"/>
-               <input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;"/>
+               <input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;"
+                       onclick="punifyDomain('wmtbURL','wmtbURL');"
+                       />
                <span id="wm_tb_options" style="display:block;"/>
            </form>
            <%=fileinfo%>

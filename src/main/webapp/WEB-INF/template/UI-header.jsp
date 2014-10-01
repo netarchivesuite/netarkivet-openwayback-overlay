@@ -18,6 +18,7 @@ String replayPrefix = results.getReplayPrefix();
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
+        <script type="text/javascript" src="<%= staticPrefix %>js/punify.js"></script>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 		<link rel="stylesheet" type="text/css"
@@ -70,7 +71,8 @@ String replayPrefix = results.getReplayPrefix();
 														<%= fmt.format("UIGlobal.enterWebAddress") %>
 													</font>
 													<input type="hidden" name="<%= WaybackRequest.REQUEST_TYPE %>" value="<%= WaybackRequest.REQUEST_CAPTURE_QUERY %>">
-													<input type="text" name="<%= WaybackRequest.REQUEST_URL %>" value="http://" size="24" maxlength="256">
+                                                    <input type="text" id="dummy_domain" name="dummy" value="http://" size="24" maxlength="256" onchange="punifyDomain('dummy_domain','real_domain');">
+                                                    <input type="hidden" id="real_domain" name="<%= WaybackRequest.REQUEST_URL %>">
 													&nbsp;
 												</b>
                                                 <!--
@@ -94,7 +96,8 @@ String replayPrefix = results.getReplayPrefix();
 												</select>
 												-->
 												&nbsp;
-												<input type="submit" name="Submit" value="<%= fmt.format("UIGlobal.urlSearchButton") %>" align="absMiddle">
+												<input type="submit" name="Submit" value="<%= fmt.format("UIGlobal.urlSearchButton") %>" align="absMiddle"
+                                                      onclick="punifyDomain('dummy_domain','real_domain');"  >
 												&nbsp;
 												<a href="<%= staticPrefix %>advanced_search.jsp" style="color:white;font-size:11px">
 													<%= fmt.format("UIGlobal.advancedSearchLink") %>
