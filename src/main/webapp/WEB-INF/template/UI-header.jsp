@@ -71,8 +71,9 @@ String replayPrefix = results.getReplayPrefix();
 														<%= fmt.format("UIGlobal.enterWebAddress") %>
 													</font>
 													<input type="hidden" name="<%= WaybackRequest.REQUEST_TYPE %>" value="<%= WaybackRequest.REQUEST_CAPTURE_QUERY %>">
-                                                    <input type="text" id="dummy_domain" name="dummy" value="http://" size="24" maxlength="256" onchange="punifyDomain('dummy_domain','real_domain');">
-                                                    <input type="hidden" id="real_domain" name="<%= WaybackRequest.REQUEST_URL %>">
+                                                   <%-- <input type="text" id="dummy_domain" name="dummy" value="http://" size="24" maxlength="256" onchange="punifyDomain('dummy_domain','real_domain');">
+                                                    <input type="hidden" id="real_domain" name="<%= WaybackRequest.REQUEST_URL %>">--%>
+                                                    <input type="text" id="real_domain" name="<%= WaybackRequest.REQUEST_URL %>" value="http://" size="24" maxlength="256" onchange="punifyDomain('real_domain','real_domain');" />
 													&nbsp;
 												</b>
                                                 <!--
@@ -96,8 +97,8 @@ String replayPrefix = results.getReplayPrefix();
 												</select>
 												-->
 												&nbsp;
-												<input type="submit" name="Submit" value="<%= fmt.format("UIGlobal.urlSearchButton") %>" align="absMiddle"
-                                                      onclick="punifyDomain('dummy_domain','real_domain');"  >
+												<input type="submit" name="Submit" value="<%= fmt.format("UIGlobal.urlSearchButton") %>" align="absMiddle"  />
+                                                     <!-- onclick="punifyDomain('real_domain','real_domain');"  > -->
 												&nbsp;
 												<a href="<%= staticPrefix %>advanced_search.jsp" style="color:white;font-size:11px">
 													<%= fmt.format("UIGlobal.advancedSearchLink") %>
