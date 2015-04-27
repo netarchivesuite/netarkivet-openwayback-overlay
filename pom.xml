@@ -102,4 +102,22 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>sbprojects-nexus</id>
+            <name>Internal SBProjects Nexus Repo manager</name>
+            <url>https://sbprojects.statsbiblioteket.dk/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>sbprojects-nexus</id>
+            <name>Internal SBForge Nexus Repo manager</name>
+            <url>https://sbprojects.statsbiblioteket.dk/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <scm>
+        <developerConnection>scm:git:ssh://git@github.com:netarchivesuite/netarkivet-openwayback-overlay.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
 </project>
