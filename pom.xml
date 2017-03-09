@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <nas.version>5.0-RC2</nas.version>
+        <nas.version>5.3-SNAPSHOT</nas.version>
     </properties>
 
     <packaging>war</packaging>
