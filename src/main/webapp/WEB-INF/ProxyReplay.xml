@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+       default-init-method="init">
+
+    <bean id="localcdxcollection" class="org.archive.wayback.webapp.WaybackCollection">
+
+        <property name="resourceStore">
+            <bean class="dk.netarkivet.wayback.NetarchiveResourceStore">
+                <!--  <property name="prefix" value="/home/netarkiv/csr/apache-tomcat-6.0.16/webapps/arcrep" /> -->
+            </bean>
+        </property>
+
+
+        <property name="resourceIndex">
+
+            <bean class="org.archive.wayback.resourceindex.LocalResourceIndex">
+                <property name="source">
+
+                    <!--
+                    <bean class="org.archive.wayback.resourceindex.CompositeSearchResultSource">
+                                <property name="CDXSources">
+                                  <list>
+                                                    <value>/data2/wayback_cdx_pligt/wayback.20150217-1707.cdx</value>
+                                                    <value>/data2/wayback_cdx_pligt/wayback.20150217-2141.cdx</value>
+                                                    <value>/data2/wayback_cdx_pligt/wayback.20150218-0241.cdx</value>
+                                                    <value>/data2/wayback_cdx_pligt/wayback.20150522-1528.cdx</value>
+                                                    <value>/data2/wayback_cdx_pligt/wayback.20150524-1711.cdx</value>
+                                                    <value>/data2/wayback_cdx_pligt/wayback_intermediate.index</value>
+                                                    <value>/data2/wayback_cdx_pligt/wayback.index</value>
+                                                    <value>/data2/wayback_cdx_pligt/wayback.20141126-1755.cdx</value>
+                                                    <value>/data2/wayback_cdx_pligt/wayback.20141126-2025.cdx</value>
+                                                    <value>/data2/wayback_cdx_pligt/wayback.20141126-2225.cdx</value>
+                                                    <value>/data2/wayback_cdx_pligt/wayback.20141127-0055.cdx</value>
+                                  </list>
+                    </bean>
+                    -->
+                    <bean class="org.archive.wayback.resourceindex.WatchedCDXSource">
+                        <property name="recursive" value="false" />
+                        <property name="filters">
+                            <list>
+                                <value>^wayback.*$</value>
+                            </list>
+                        </property>
+                    </bean>
+                </property>
+
+            </bean>
+        </property>
+        <property name="maxRecords" value="80000" />
+    </bean>
+</beans>
