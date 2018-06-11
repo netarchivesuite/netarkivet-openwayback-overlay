@@ -179,7 +179,7 @@
     </distributionManagement>
 
     <scm>
-        <developerConnection>scm:git:ssh://git@github.com:netarchivesuite/netarkivet-openwayback-overlay.git</developerConnection>
+        <developerConnection>scm:git:ssh://git@github.com:netarchivesuite/openwayback-netarkivet-overlay.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
