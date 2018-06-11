@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dk.netarkivet.wayback</groupId>
-    <artifactId>netarkivet-openwayback-overlay</artifactId>
+    <artifactId>openwayback-netarkivet-overlay</artifactId>
     <version>1.2-SNAPSHOT</version>
 
     <properties>
@@ -138,7 +138,7 @@
     </dependencies>
 
     <build>
-        <finalName>netarkivet-openwayback</finalName>
+        <finalName>openwayback-netarkivet</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
